@@ -1,0 +1,25 @@
+! Fonts
+xterm*faceName: DejaVu Sans Mono Book
+xterm*faceSize: 10
+
+! Ligther colors
+xterm.VT100.background:         Black
+xterm.VT100.color0:             Black
+xterm.VT100.color1:             Red
+xterm.VT100.color2:             Green
+xterm.VT100.color3:             Yellow
+xterm.VT100.color4:             CornflowerBlue
+xterm.VT100.color5:             Magenta
+xterm.VT100.color6:             Cyan
+xterm.VT100.color7:             White
+xterm.VT100.colorBD:            White
+xterm.VT100.colorBDMode:        true
+xterm.VT100.colorUL:            Yellow
+xterm.VT100.colorULMode:        true
+xterm.VT100.cursorColor:        Red
+xterm.VT100.foreground:         White
+
+! Transparency
+aterm*transparent:		true 
+aterm*transpscrollbar:	true
+aterm*shading:			60 

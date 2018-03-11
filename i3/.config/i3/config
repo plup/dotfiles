@@ -1,0 +1,209 @@
+set $mod Mod4
+
+font pango:monospace 10
+#font pango:DejaVu Sans Mono 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec xterm
+
+# start a terminal with reverse color profile
+bindsym $mod+Shift+Return exec xterm -rv
+
+# start firefox
+bindsym $mod+F1 exec firefox
+
+# start thunar
+bindsym $mod+F2 exec thunar
+
+# start screenshooter
+bindsym $mod+F12 exec xfce4-screenshooter
+
+# kill focused window
+bindsym $mod+Shift+A kill
+
+## Navigation ##
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+M move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+q focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+## Workspaces ##
+
+# variables (require font-awesome)
+set $wk_water "&#xf043;"
+set $wk_fire "&#xf06d;"
+set $wk_code "&#xf121;"
+set $wk_test "&#xf0c3;"
+set $wk_task "&#xf0ae;"
+set $wk_config "&#xf0ad;"
+set $wk_cmd "&#xf120;"
+set $wk_manage "&#xf0ae;"
+set $wk_mail "&#xf003;"
+set $wk_chat "&#xf1d7;"
+set $wk_music "&#xf001;"
+
+# switch to workspace
+bindsym $mod+ampersand workspace $wk_water
+bindsym $mod+eacute workspace $wk_fire
+bindsym $mod+quotedbl workspace $wk_cmd
+bindsym $mod+apostrophe workspace $wk_code
+bindsym $mod+parenleft workspace $wk_test
+bindsym $mod+minus workspace $wk_config
+bindsym $mod+egrave workspace $wk_manage
+bindsym $mod+underscore workspace $wk_mail
+bindsym $mod+ccedilla workspace $wk_chat
+bindsym $mod+agrave workspace $wk_music
+
+# switch with left/right
+bindsym $mod+Shift+Left workspace prev
+bindsym $mod+Shift+Right workspace next
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $wk_water
+bindsym $mod+Shift+eacute move container to workspace $wk_fire
+bindsym $mod+Shift+3 move container to workspace $wk_cmd
+bindsym $mod+Shift+4 move container to workspace $wk_code
+bindsym $mod+Shift+5 move container to workspace $wk_test
+bindsym $mod+Shift+6 move container to workspace $wk_config
+bindsym $mod+Shift+egrave move container to workspace $wk_manage
+bindsym $mod+Shift+8 move container to workspace $wk_mail
+bindsym $mod+Shift+ccedilla move container to workspace $wk_chat
+bindsym $mod+Shift+agrave move container to workspace $wk_music
+
+# assignment
+assign [class="Rocket.Chat+"] $wk_chat
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Terminate X session ?' -b 'Yes, exit i3' 'i3-msg exit'"
+# shutdown the computer
+bindsym $mod+Shift+h exec "i3-nagbar -t warning -m 'Shutdown the machine ?' -b 'Poweroff' 'sudo /sbin/shutdown -h now'"
+# lockout session
+bindsym XF86ScreenSaver exec i3lock --color "$bg-color"
+
+## Screen control ##
+
+bindsym XF86MonBrightnessDown exec xbacklight -dec +20
+bindsym XF86MonBrightnessUp exec xbacklight -inc +20
+
+## Extra buttons ##
+
+# manage volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+## Resizing ##
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+## Colors ##
+
+# vars
+set $bg-color				#2f343f
+set $bg-color-inactive		#2f343f
+set $bg-color-urgent		#e53935
+set $text-color				#f3f4f5
+set $text-color-inactive	#676e7d
+
+# windows
+#						border				background			text					# indicator
+client.focused			$bg-color			$bg-color			$text-color				#000000
+client.unfocused		$bg-color-inactive	$bg-color-inactive	$text-color-inactive	#000000
+client.focused_inactive	$bg-color-inactive	$bg-color-inactive	$text-color-inactive	#000000
+client.urgent			$bg-color-urgent	$bg-color-urgent	$text-color				#000000
+
+hide_edge_borders both
+
+## DMenu ##
+
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bg-color" -sb "$text-color-inactive" -nf "$text-color"
+
+## Status bar ##
+bar {
+    status_command i3status
+#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+	colors {
+		background	$bg-color
+		separator	#757575
+		#					border				background			text
+		focused_workspace	$bg-color			$bg-color			$text-color
+		inactive_workspace	$bg-color-inactive	$bg-color-inactive	$text-color-inactive
+		urgent_workspace	$bg-color-urgent	$bg-color-urgent	$text-color
+	}
+}
+
+## Wallpaper ##
+exec_always feh --bg-scale ~/image/wallpaper/digital-DNA.jpg
