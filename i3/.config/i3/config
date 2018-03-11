@@ -1,7 +1,6 @@
 set $mod Mod4
 
-font pango:monospace 10
-#font pango:DejaVu Sans Mono 8
+font pango:monospace, FontAwesome 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -190,7 +189,7 @@ hide_edge_borders both
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bg-color" -sb "$text-color-inactive" -nf "$text-color"
 
-## Status bar ##
+## Status bar ##
 bar {
     status_command i3status
 #    status_command i3blocks -c ~/.config/i3/i3blocks.conf
