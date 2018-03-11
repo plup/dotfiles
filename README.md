@@ -2,5 +2,5 @@
 
 Installation:
 ~~~
-$ git clone git@github.com:plup/dotfiles.git ~/.dotfiles
+$ git clone https://github.com/plup/dotfiles.git ~/.dotfiles
 ~~~
