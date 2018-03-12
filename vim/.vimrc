@@ -34,6 +34,10 @@ syntax on
 set list
 set listchars=nbsp:␣,tab:▸-,extends:»,precedes:«,trail:•	
 
+" Disable backup files
+set nobackup
+set nowritebackup
+
 autocmd BufNewFile,BufRead *.t2t set ft=txt2tags
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
