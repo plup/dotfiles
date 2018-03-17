@@ -41,7 +41,7 @@ set nowritebackup
 autocmd BufNewFile,BufRead *.t2t set ft=txt2tags
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
-colorscheme mustang
+colorscheme slate
 
 " key bindings
 nnoremap <F2> :NERDTreeToggle<CR>
