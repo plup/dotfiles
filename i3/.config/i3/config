@@ -11,14 +11,14 @@ bindsym $mod+Return exec xterm
 # start a terminal with reverse color profile
 bindsym $mod+Shift+Return exec xterm -rv
 
-# start firefox
+# start web browser
 bindsym $mod+F1 exec firefox
 
-# start thunar
-bindsym $mod+F2 exec thunar
+# start file manager
+bindsym $mod+F2 exec xterm ranger
 
-# start screenshooter
-bindsym $mod+F12 exec xfce4-screenshooter
+# start music player
+bindsym $mod+F3 exec xterm mocp
 
 # kill focused window
 bindsym $mod+Shift+A kill
