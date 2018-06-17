@@ -7,3 +7,9 @@
 [submodule "vim/.vim/pack/my-plugins/start/vim-nerdtree"]
 	path = vim/.vim/pack/my-plugins/start/vim-nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/.vim/pack/my-plugins/start/vim-ledger"]
+	path = vim/.vim/pack/my-plugins/start/vim-ledger
+	url = https://github.com/ledger/vim-ledger.git
+[submodule "vim/.vim/pack/my-plugins/start/vim-gitgutter"]
+	path = vim/.vim/pack/my-plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git

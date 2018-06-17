@@ -13,3 +13,9 @@ $ git submodule add https://github.com/vim-airline/vim-airline.git vim/.vim/pack
 $ git commit
 ~~~
 
+Update `vim` plugins:
+~~~
+$ cd .dotfiles
+$ git submodule update --remote --merge
+$ git commit
+~~~

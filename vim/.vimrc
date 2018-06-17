@@ -1,6 +1,5 @@
 set nocompatible
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 shiftwidth=4 expandtab
 set backspace=indent,eol,start
 set ruler
 set number
