@@ -1,5 +1,5 @@
 
-! Font
+! Fonts
 Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
@@ -7,7 +7,10 @@ Xft.rgba: rgb
 Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-*font: xft:monospace:size=10
+
+URxvt.font: xft:Inconsolata-11
+URxvt.boldFont: xft:Inconsolata-12
+URxvt.letterSpace: 0
 
 ! Hide scrollbar
 URxvt.scrollBar: false
@@ -16,59 +19,54 @@ URxvt.scrollBar: false
 XTerm*selectToClipboard: true
 URxvt.perl-ext-common: selection-to-clipboard
 
-! Base16 Google Dark
-! Scheme: Seth Wright (http://sethawright.com)
-! From: https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-google-dark-256.Xresources
+! Color palette
 
-#define base00 #1d1f21
-#define base01 #282a2e
-#define base02 #373b41
-#define base03 #969896
-#define base04 #b4b7b4
-#define base05 #c5c8c6
-#define base06 #e0e0e0
-#define base07 #ffffff
-#define base08 #cc342b
-#define base09 #f96a38
-#define base0A #fba922
-#define base0B #198844
-#define base0C #3971ed
-#define base0D #3971ed
-#define base0E #a36ac7
-#define base0F #3971ed
+#define t_background        #1d1f21
+#define t_current_line      #2a2a2a
+#define t_selection         #424242
+#define t_foreground        #eaeaea
+#define t_comment           #969896
+#define t_red               #d54e53
+#define t_orange            #e78c45
+#define t_yellow            #e7c547
+#define t_green             #46b47c
+#define t_aqua              #70c0b1
+#define t_blue              #7aa6da
+#define t_purple            #c397d8
 
-*foreground:   base05
-#ifdef background_opacity
-*background:   [background_opacity]base00
-#else
-*background:   base00
-#endif
-*cursorColor:  base05
+! Theme
+*.foreground:   t_foreground
+*.background:   t_background
+*.cursorColor:  #aeafad
 
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
+! Black / Grey
+*.color0:       #000000
+*.color8:       #666666
 
-*color8:       base03
-*color9:       base08
-*color10:      base0B
-*color11:      base0A
-*color12:      base0D
-*color13:      base0E
-*color14:      base0C
-*color15:      base07
+! Red / Bright Red
+*.color1:       t_red
+*.color9:       #FF3334
 
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*color16:      base09
-*color17:      base0F
-*color18:      base01
-*color19:      base02
-*color20:      base04
-*color21:      base06
+! Green + Bright Green
+*.color2:       t_green
+*.color10:      #9ec400
 
+! Yellow (Orange) + Bright Yellow (Yellow)
+*.color3:       t_orange
+*.color11:      t_yellow
+
+! Blue + Bright Blue
+*.color4:       t_blue
+*.color12:      t_blue
+
+! Magenta (Purple) + Bright Magenta
+*.color5:       t_purple
+*.color13:      #b777e0
+
+! Cyan (Aqua) + Bright Cyan
+*.color6:       t_aqua
+*.color14:      #54ced6
+
+! Light Grey (Selection) + White (Current Line)
+*.color7:       t_selection
+*.color15: t_current_line
