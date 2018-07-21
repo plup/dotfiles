@@ -1,0 +1,50 @@
+[accounts]
+    [[plup]]
+        realname = Plup
+        address = plup@plup.io
+        sent_box = maildir:///home/plup/.mail/Plup/Sent
+        draft_box = maildir:///home/plup/.mail/Plup/Drafts
+        sent_tags = sent,
+        sendmail_command = msmtp -a plup -t
+    [[happydev]]
+        realname = Simon
+        address = simon@happy-dev.fr
+        sent_box = maildir:///home/plup/.mail/Happydev/Sent
+        draft_box = maildir:///home/plup/.mail/Happydev/Drafts
+        sent_tags = sent,
+        sendmail_command = msmtp -a happydev -t
+    [[gmail]]
+        realname = Simon
+        address = rouault.simon@gmail.com
+        sent_box = maildir:///home/plup/.mail/Gmail/Sent
+        draft_box = maildir:///home/plup/.mail/Gmail/Drafts
+        sent_tags = sent,
+        sendmail_command = msmtp -a gmail -t
+    [[rouault]]
+        realname = Simon
+        address = simon@rouault.me
+        sent_box = maildir:///home/plup/.mail/Rouault/Sent
+        draft_box = maildir:///home/plup/.mail/Rouault/Drafts
+        sent_tags = sent,
+        sendmail_command = msmtp -a rouault -t
+
+[bindings]
+    [[thread]]
+        w = pipeto urlscan 2> /dev/null
+
+[tags]
+    [[flagged]]
+        translated = ⚑
+        normal = '','','light red','','light red',''
+        focus = '','','light red','','light red',''
+    [[inbox]]
+        translated = ⌂
+    [[unread]]
+        translated = ✉
+    [[replied]]
+        translated = ↵
+    [[attachment]]
+        translated = ⚓
+    [[encrypted]]
+        translated = ⚷
+
