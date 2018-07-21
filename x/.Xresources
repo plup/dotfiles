@@ -1,3 +1,5 @@
+
+! Font
 Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
@@ -5,11 +7,14 @@ Xft.rgba: rgb
 Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-
 *font: xft:monospace:size=10
 
-! Force xterm to send selection to CLIPBOARD (used by firefox) rather than PRIMARY
+! Hide scrollbar
+URxvt.scrollBar: false
+
+! Force term to send selection to CLIPBOARD (used by GUI) rather than PRIMARY
 XTerm*selectToClipboard: true
+URxvt.perl-ext-common: selection-to-clipboard
 
 ! Base16 Google Dark
 ! Scheme: Seth Wright (http://sethawright.com)

@@ -6,19 +6,16 @@ font pango:monospace, FontAwesome 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
-
-# start a terminal with reverse color profile
-bindsym $mod+Shift+Return exec xterm -rv
+bindsym $mod+Return exec urxvt
 
 # start web browser
 bindsym $mod+F1 exec firefox
 
 # start file manager
-bindsym $mod+F2 exec xterm ranger
+bindsym $mod+F2 exec urxvt -e ranger
 
 # start music player
-bindsym $mod+F3 exec xterm mocp
+bindsym $mod+F3 exec urxvt -e mocp
 
 # kill focused window
 bindsym $mod+Shift+A kill
@@ -69,7 +66,7 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-## Workspaces ##
+## Workspaces ##
 
 # variables (require font-awesome)
 set $wk_water "&#xf043;"
@@ -113,7 +110,6 @@ bindsym $mod+Shift+ccedilla move container to workspace $wk_chat
 bindsym $mod+Shift+agrave move container to workspace $wk_music
 
 # assignment
-assign [class="Rocket.Chat+"] $wk_chat
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -121,24 +117,24 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Terminate X session ?' -b 'Yes, exit i3' 'i3-msg exit'"
-# shutdown the computer
+# shutdown the computer
 bindsym $mod+Shift+h exec "i3-nagbar -t warning -m 'Shutdown the machine ?' -b 'Poweroff' 'sudo /sbin/shutdown -h now'"
-# lockout session
+# lockout session
 bindsym XF86ScreenSaver exec i3lock --color "$bg-color"
 
-## Screen control ##
+## Screen control ##
 
 bindsym XF86MonBrightnessDown exec xbacklight -dec +20
 bindsym XF86MonBrightnessUp exec xbacklight -inc +20
 
-## Extra buttons ##
+## Extra buttons ##
 
-# manage volume
+# manage volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-## Resizing ##
+## Resizing ##
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -166,9 +162,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-## Colors ##
+## Colors ##
 
-# vars
+# vars
 set $bg-color				#2f343f
 set $bg-color-inactive		#2f343f
 set $bg-color-urgent		#e53935
