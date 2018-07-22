@@ -1,4 +1,4 @@
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
@@ -24,22 +24,51 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Xterm support 256 colors
-export TERM=xterm-256color
+# set terminal to urxvt
+export TERM=rxvt-unicode
 
-function color_my_prompt {
-    local __user_and_host="\[\033[01;32m\]\u@\h"
-    local __cur_location="\[\033[01;34m\]\w"
-    local __git_branch_color="\[\033[31m\]"
-    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
-    local __prompt_tail="\n\[\033[35m\]$"
-    local __last_color="\[\033[00m\]"
-    export PS1="$__user_and_host:$__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
+# set the prompt
+get_git_info() {
+    local branch_name
+    local state
+    if $(git rev-parse --is-inside-work-tree &> /dev/null); then
+        # Get the short symbolic ref
+        branch_name=$(git symbolic-ref --quiet --short HEAD 2> /dev/null) ||
+        # If HEAD isn't a symbolic ref, get the short SHA
+        branch_name=$(git rev-parse --short HEAD 2> /dev/null) ||
+        # Otherwise, just give up
+        branch_name="unknown"
+        # Check for unstaged changes
+        if ! $(git diff-files --quiet --ignore-submodules --); then us="!"; fi
+        # Check for untracked files
+        if [ -n "$(git ls-files --others --exclude-standard)" ]; then ut="?"; fi
+        # Check for stashed files
+        if $(git rev-parse --verify refs/stash &>/dev/null); then st="$"; fi
+        state=$uc$us$ut$st
+        if [[ $state ]];then
+            printf "($branch_name[$state])"
+        else
+            printf "($branch_name)"
+        fi
+    fi
 }
-color_my_prompt
 
-# Commands
-alias compta="vi ~/administratif/freelance/compta"
+set_my_prompt() {
+    local time="\[\033[01;32m\][\t]"
+    local user_and_host="\[\033[01;32m\]\u@\h"
+    local cur_location="\[\033[01;34m\]\w"
+    local git_branch_color="\[\033[31m\]"
+    local prompt_tail="\n\[\033[35m\]$"
+    local last_color="\[\033[00m\]"
+    export PS1="$time $user_and_host:$cur_location $git_branch_color\$(get_git_info)$prompt_tail$last_color "
+}
+set_my_prompt
+
+# commands I need everywhere
 alias sniff='curl -w "@$HOME/doc/scripts/curl_sniff.format" -o /dev/null -O --remote-name --remote-header-name -sL'
-alias pass-security="PASSWORD_STORE_DIR=~/.pass/security PASSWORD_STORE_GIT=~/.pass/security pass"
 alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
+
+# extra local commands
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi

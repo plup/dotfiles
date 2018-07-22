@@ -24,12 +24,17 @@ URxvt.perl-ext-common: selection-to-clipboard
 #define t_background        #1d1f21
 #define t_current_line      #2a2a2a
 #define t_selection         #424242
+#define t_cursor            #aeafad
 #define t_foreground        #eaeaea
 #define t_comment           #969896
+#define t_black             #000000
+#define t_grey              #666666
 #define t_red               #d54e53
+#define t_red_bright        #ff3334
 #define t_orange            #e78c45
 #define t_yellow            #e7c547
 #define t_green             #46b47c
+#define t_green_bright      #9ec400
 #define t_aqua              #70c0b1
 #define t_blue              #7aa6da
 #define t_purple            #c397d8
@@ -37,19 +42,19 @@ URxvt.perl-ext-common: selection-to-clipboard
 ! Theme
 *.foreground:   t_foreground
 *.background:   t_background
-*.cursorColor:  #aeafad
+*.cursorColor:  t_cursor
 
 ! Black / Grey
-*.color0:       #000000
-*.color8:       #666666
+*.color0:       t_black
+*.color8:       t_grey
 
 ! Red / Bright Red
 *.color1:       t_red
-*.color9:       #FF3334
+*.color9:       t_red_bright
 
 ! Green + Bright Green
 *.color2:       t_green
-*.color10:      #9ec400
+*.color10:      t_green_bright
 
 ! Yellow (Orange) + Bright Yellow (Yellow)
 *.color3:       t_orange
@@ -69,4 +74,4 @@ URxvt.perl-ext-common: selection-to-clipboard
 
 ! Light Grey (Selection) + White (Current Line)
 *.color7:       t_selection
-*.color15: t_current_line
+*.color15:      t_current_line
