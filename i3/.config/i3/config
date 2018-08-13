@@ -9,13 +9,14 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 
 # start web browser
-bindsym $mod+F1 exec firefox
+bindsym $mod+F1 exec vivaldi
+bindsym $mod+F2 exec vivaldi --incognito
 
 # start file manager
-bindsym $mod+F2 exec urxvt -e ranger
+bindsym $mod+F3 exec urxvt -e ranger
 
 # start music player
-bindsym $mod+F3 exec urxvt -e mocp
+bindsym $mod+F4 exec urxvt -e mocp
 
 # kill focused window
 bindsym $mod+Shift+A kill
