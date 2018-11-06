@@ -156,25 +156,23 @@ bindsym $mod+r mode "resize"
 ## Colors ##
 
 # vars
-set $bg-color				#2f343f
-set $bg-color-inactive		#2f343f
-set $bg-color-urgent		#e53935
-set $text-color				#f3f4f5
-set $text-color-inactive	#676e7d
+set $bg        #2f343f
+set $bg-urg    #e53935
+set $tx-act    #f3f4f5
+set $tx-ina    #676e7d
 
-# windows
-#						border				background			text					# indicator
-client.focused			$bg-color			$bg-color			$text-color				#000000
-client.unfocused		$bg-color-inactive	$bg-color-inactive	$text-color-inactive	#000000
-client.focused_inactive	$bg-color-inactive	$bg-color-inactive	$text-color-inactive	#000000
-client.urgent			$bg-color-urgent	$bg-color-urgent	$text-color				#000000
+# class                 border  backgr. text    indicator
+client.focused          $bg     $bg     $tx-act #000000
+client.focused_inactive $bg     $bg     $tx-ina #000000
+client.unfocused        $bg     $bg     $tx-ina #000000
+client.urgent           $bg-urg $bg-urg $tx-act #000000
 
 hide_edge_borders both
 
 ## DMenu ##
 
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bg-color" -sb "$text-color-inactive" -nf "$text-color"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bg" -sb "$tx-ina" -nf "$tx-act"
 
 ## Status bar ##
 bar {

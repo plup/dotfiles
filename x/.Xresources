@@ -8,8 +8,9 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+! See package fonts-inconsolata for debian
 URxvt.font: xft:Inconsolata-11
-URxvt.boldFont: xft:Inconsolata-12
+URxvt.boldFont: xft:Inconsolata-11
 URxvt.letterSpace: 0
 
 ! Hide scrollbar
@@ -21,57 +22,43 @@ URxvt.perl-ext-common: selection-to-clipboard
 
 ! Color palette
 
-#define t_background        #1d1f21
-#define t_current_line      #2a2a2a
-#define t_selection         #424242
-#define t_cursor            #aeafad
-#define t_foreground        #eaeaea
-#define t_comment           #969896
-#define t_black             #000000
-#define t_grey              #666666
-#define t_red               #d54e53
-#define t_red_bright        #ff3334
-#define t_orange            #e78c45
-#define t_yellow            #e7c547
-#define t_green             #46b47c
-#define t_green_bright      #9ec400
-#define t_aqua              #70c0b1
-#define t_blue              #7aa6da
-#define t_purple            #c397d8
+*.foreground:   #eaeaea
+*.background:   #1d1f21
+*.cursorColor:  #aeafad
 
-! Theme
-*.foreground:   t_foreground
-*.background:   t_background
-*.cursorColor:  t_cursor
+! Black
+*.color0:       #000000
+*.color8:       #666666
 
-! Black / Grey
-*.color0:       t_black
-*.color8:       t_grey
+! Red
+*.color1:       #d54e53
+*.color9:       #ff3334
 
-! Red / Bright Red
-*.color1:       t_red
-*.color9:       t_red_bright
+! Green
+*.color2:       #46b47c
+*.color10:      #9ec400
 
-! Green + Bright Green
-*.color2:       t_green
-*.color10:      t_green_bright
+! Yellow
+*.color3:       #e78c45
+*.color11:      #e7c547
 
-! Yellow (Orange) + Bright Yellow (Yellow)
-*.color3:       t_orange
-*.color11:      t_yellow
+! Blue
+*.color4:       #7aa6da
+*.color12:      #7aa6da
 
-! Blue + Bright Blue
-*.color4:       t_blue
-*.color12:      t_blue
-
-! Magenta (Purple) + Bright Magenta
-*.color5:       t_purple
+! Magenta
+*.color5:       #c397d8
 *.color13:      #b777e0
 
-! Cyan (Aqua) + Bright Cyan
-*.color6:       t_aqua
+! Cyan
+*.color6:       #70c0b1
 *.color14:      #54ced6
 
-! Light Grey (Selection) + White (Current Line)
-*.color7:       t_selection
-*.color15:      t_current_line
+! Light Grey
+*.color7:       #2a2a2a
+*.color15:      #424242
+
+! Style
+*.colorBD:      #aaaaaa
+!*.colorIT:
+!*.colorUL:
