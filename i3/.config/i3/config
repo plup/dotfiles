@@ -2,6 +2,8 @@ set $mod Mod4
 
 font pango:monospace, FontAwesome 10
 
+## Programs ##
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -24,22 +26,16 @@ bindsym $mod+Shift+A kill
 ## Navigation ##
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+m focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+M move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -65,7 +61,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+q focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $mod+a focus child
 
 ## Workspaces ##
 
@@ -110,7 +106,10 @@ bindsym $mod+Shift+8 move container to workspace $wk_mail
 bindsym $mod+Shift+ccedilla move container to workspace $wk_chat
 bindsym $mod+Shift+agrave move container to workspace $wk_music
 
-# assignment
+# move focus container to output (see `xrandr --listmonitors`)
+bindsym $mod+x move workspace to output right
+
+## i3 assignments ##
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -140,15 +139,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym m resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -189,17 +179,16 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bg-color" -sb "$text-color-i
 ## Status bar ##
 bar {
     status_command i3status
-#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	position top
-	colors {
-		background	$bg-color
-		separator	#757575
-		#					border				background			text
-		focused_workspace	$bg-color			$bg-color			$text-color
-		inactive_workspace	$bg-color-inactive	$bg-color-inactive	$text-color-inactive
-		urgent_workspace	$bg-color-urgent	$bg-color-urgent	$text-color
-	}
+    position top
+    colors {
+        background  $bg-color
+        separator   #757575
+        #                   border              background          text
+        focused_workspace   $bg-color           $bg-color           $text-color
+        inactive_workspace  $bg-color-inactive  $bg-color-inactive  $text-color-inactive
+        urgent_workspace    $bg-color-urgent    $bg-color-urgent    $text-color
+    }
 }
 
 ## Wallpaper ##
-exec_always feh --bg-scale ~/image/wallpaper/digital-DNA.jpg
+exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg

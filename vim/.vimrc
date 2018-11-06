@@ -19,10 +19,11 @@ set listchars=nbsp:␣,tab:▸-,extends:»,precedes:«,trail:•
 set nobackup
 set nowritebackup
 
-autocmd BufNewFile,BufRead *.t2t set ft=txt2tags
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-
+" Set colors
 colorscheme slate
 
-" key bindings
+" Key bindings
 nnoremap <F2> :NERDTreeToggle<CR>
+
+" Disable tab expansion for Makefile
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
