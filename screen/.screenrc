@@ -1,0 +1,8 @@
+# turn off welcome message
+startup_message off
+
+# disable bars
+#rendition so =00
+
+# title bar
+caption always "%{= g}[ %{G}${USER}@%H%{g} ][%= %{= w}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c:%s %{g}][%{Y}%l%{g}]%{=b C}%{W}"

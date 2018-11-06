@@ -24,9 +24,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# set terminal to urxvt
-export TERM=rxvt-unicode
-
 # set the prompt
 get_git_info() {
     local branch_name
@@ -68,7 +65,20 @@ set_my_prompt
 alias sniff='curl -w "@$HOME/doc/scripts/curl_sniff.format" -o /dev/null -O --remote-name --remote-header-name -sL'
 alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
 
-# extra local commands
+# set default behavior
+
+# python version for pipenv
+PIPENV_DEFAULT_PYTHON_VERSION=3.6
+
+# use urxvt terminal if available
+if [ -f /usr/bin/urxvt ]; then
+    export TERM=rxvt-unicode
+else
+    export TERM=xterm-256color
+fi
+
+
+# extra local commands (right place for local overrides)
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
