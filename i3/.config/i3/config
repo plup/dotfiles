@@ -91,8 +91,8 @@ bindsym $mod+ccedilla workspace $wk_chat
 bindsym $mod+agrave workspace $wk_music
 
 # switch with left/right
-bindsym $mod+Shift+Left workspace prev
-bindsym $mod+Shift+Right workspace next
+bindsym $mod+Shift+j workspace prev
+bindsym $mod+Shift+m workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $wk_water
@@ -179,12 +179,12 @@ bar {
     status_command i3status
     position top
     colors {
-        background  $bg-color
+        background  $bg
         separator   #757575
-        #                   border              background          text
-        focused_workspace   $bg-color           $bg-color           $text-color
-        inactive_workspace  $bg-color-inactive  $bg-color-inactive  $text-color-inactive
-        urgent_workspace    $bg-color-urgent    $bg-color-urgent    $text-color
+        # class             border  backgr.  text
+        focused_workspace   $bg     $bg      $tx-act
+        inactive_workspace  $bg     $bg      $tx-ina
+        urgent_workspace    $bg-urg $bg-urg  $tx-act
     }
 }
 
