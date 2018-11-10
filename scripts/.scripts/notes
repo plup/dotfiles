@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -e
+
+search() {
+    # give focus to the last file selected
+    previous_file="$1"
+    file_to_edit=$(fzf --preview="cat {}" --preview-window=right:70%:wrap --query="$previous_file")
+    if [ -n "$file_to_edit" ]; then
+        # edit in vim
+        vim "$file_to_edit"
+        # restart the fzf windows with the file just edited
+        search "$file_to_edit"
+    fi
+}
+
+# working directory
+if [ -d "$HOME/notes" ]; then
+    cd "$HOME/notes"
+fi
+
+if [ -n "$1" ]; then
+    # use all args to build file name
+    IFS='_'
+    file_to_edit="${*}.md"
+    IFS=' '
+    vim "$file_to_edit"
+else
+    # if no args trigger the search
+    search ""
+fi

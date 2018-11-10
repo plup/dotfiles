@@ -65,7 +65,7 @@ set_my_prompt
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
 
 # add pip user installed binaries to PATH
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.scripts:$HOME/.local/bin:$PATH"
 
 # use urxvt terminal if available
 if [ -f /usr/bin/urxvt ]; then
