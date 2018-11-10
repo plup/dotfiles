@@ -62,13 +62,13 @@ set_my_prompt() {
 set_my_prompt
 
 # commands I need everywhere
-alias sniff='curl -w "@$HOME/doc/scripts/curl_sniff.format" -o /dev/null -O --remote-name --remote-header-name -sL'
 alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
 
-# set default behavior
-
 # python version for pipenv
-PIPENV_DEFAULT_PYTHON_VERSION=3.6
+export PIPENV_DEFAULT_PYTHON_VERSION=3.6
+
+# add pip user installed binaries to PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # use urxvt terminal if available
 if [ -f /usr/bin/urxvt ]; then
@@ -76,7 +76,6 @@ if [ -f /usr/bin/urxvt ]; then
 else
     export TERM=xterm-256color
 fi
-
 
 # extra local commands (right place for local overrides)
 if [ -f ~/.bash_aliases ]; then
