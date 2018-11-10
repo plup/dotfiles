@@ -24,7 +24,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# set the prompt
+# function to detect git status
 get_git_info() {
     local branch_name
     local state
@@ -50,16 +50,8 @@ get_git_info() {
     fi
 }
 
-set_my_prompt() {
-    local time="\[\033[01;32m\][\t]"
-    local user_and_host="\[\033[01;32m\]\u@\h"
-    local cur_location="\[\033[01;34m\]\w"
-    local git_branch_color="\[\033[31m\]"
-    local prompt_tail="\n\[\033[35m\]$"
-    local last_color="\[\033[00m\]"
-    export PS1="$time $user_and_host:$cur_location $git_branch_color\$(get_git_info)$prompt_tail$last_color "
-}
-set_my_prompt
+# set the prompt
+export PS1="\[\033[38;5;247m\][\t] \u@\h:\[\033[01;34m\]\w \[\033[31m\]\$(get_git_info)\n\[\033[35m\]$\[\033[00m\] "
 
 # python version for pipenv
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
