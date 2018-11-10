@@ -61,9 +61,6 @@ set_my_prompt() {
 }
 set_my_prompt
 
-# commands I need everywhere
-alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
-
 # python version for pipenv
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
 
@@ -76,6 +73,14 @@ if [ -f /usr/bin/urxvt ]; then
 else
     export TERM=xterm-256color
 fi
+
+# set bash completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+# commands I need everywhere
+alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
 
 # extra local commands (right place for local overrides)
 if [ -f ~/.bash_aliases ]; then
