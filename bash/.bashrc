@@ -56,7 +56,7 @@ export PS1="\[\033[38;5;247m\][\t] \u@\h:\[\033[01;34m\]\w \[\033[31m\]\$(get_gi
 # python version for pipenv
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
 
-# add pip user installed binaries to PATH
+# add pip user installed binaries and local scripts to PATH
 export PATH="$HOME/.scripts:$HOME/.local/bin:$PATH"
 
 # use urxvt terminal if available
@@ -73,6 +73,11 @@ fi
 
 # commands I need everywhere
 alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
+
+if [ -f "$HOME/.config/todo.cfg" ]; then
+    alias td="todo-txt -d $HOME/.config/todo.cfg"
+fi
+
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
         LESS_TERMCAP_md=$'\E[01;38;5;74m' \
