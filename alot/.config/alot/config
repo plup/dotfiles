@@ -1,3 +1,5 @@
+theme = "solarized_dark"
+
 [accounts]
     [[plup]]
         realname = Plup
