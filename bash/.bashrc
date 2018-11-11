@@ -73,7 +73,16 @@ fi
 
 # commands I need everywhere
 alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
-
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+        LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+        LESS_TERMCAP_me=$'\E[0m' \
+        LESS_TERMCAP_se=$'\E[0m' \
+        LESS_TERMCAP_so=$'\E[38;5;246m' \
+        LESS_TERMCAP_ue=$'\E[0m' \
+        LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+        man "$@"
+}
 # extra local commands (right place for local overrides)
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

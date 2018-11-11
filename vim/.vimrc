@@ -19,8 +19,9 @@ set listchars=nbsp:␣,tab:▸-,extends:»,precedes:«,trail:•
 set nobackup
 set nowritebackup
 
-" Set colors
+" Set colors (t_Co=16 force vim to use Xresources colors)
 colorscheme slate
+set t_Co=16
 
 " Key bindings
 nnoremap <F2> :NERDTreeToggle<CR>

@@ -22,43 +22,44 @@ URxvt.perl-ext-common: selection-to-clipboard
 
 ! Color palette
 
-*.foreground:   #eaeaea
-*.background:   #1d1f21
-*.cursorColor:  #aeafad
+! special
+*.foreground:   #fafafa
+*.background:   #0a0c0f
+*.cursorColor:  #eaeaea
 
-! Black
+! black
 *.color0:       #000000
 *.color8:       #666666
 
-! Red
-*.color1:       #d54e53
-*.color9:       #ff3334
+! red
+*.color1:       #c0392b
+*.color9:       #ff1d1d
 
-! Green
+! green
 *.color2:       #46b47c
-*.color10:      #9ec400
+*.color10:      #74c431
 
-! Yellow
+! yellow
 *.color3:       #e78c45
-*.color11:      #e7c547
+*.color11:      #f1c40f
 
-! Blue
-*.color4:       #7aa6da
-*.color12:      #7aa6da
+! blue
+*.color4:       #2955b9
+*.color12:      #3290cf
 
-! Magenta
+! magenta
 *.color5:       #c397d8
 *.color13:      #b777e0
 
-! Cyan
+! cyan
 *.color6:       #70c0b1
-*.color14:      #54ced6
+*.color14:      #26cbd6
 
-! Light Grey
+! white
 *.color7:       #2a2a2a
 *.color15:      #424242
 
-! Style
+! style
 *.colorBD:      #aaaaaa
 !*.colorIT:
 !*.colorUL:
