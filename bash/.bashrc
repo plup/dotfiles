@@ -73,6 +73,7 @@ fi
 
 # commands I need everywhere
 alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
+alias vi="vim"
 
 if [ -f "$HOME/.config/todo.cfg" ]; then
     alias td="todo-txt -d $HOME/.config/todo.cfg"

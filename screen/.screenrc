@@ -1,3 +1,6 @@
+# set TERM for .bashrc
+term screen-256color
+
 # turn off welcome message
 startup_message off
 
