@@ -4,6 +4,8 @@ case $- in
       *) return;;
 esac
 
+## Terminal style and behavior ##
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
@@ -23,6 +25,24 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+# man colors
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+        LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+        LESS_TERMCAP_me=$'\E[0m' \
+        LESS_TERMCAP_se=$'\E[0m' \
+        LESS_TERMCAP_so=$'\E[38;5;246m' \
+        LESS_TERMCAP_ue=$'\E[0m' \
+        LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+        man "$@"
+}
+
+## GIT ##
+
+# set name in commits (usefull on shared account)
+#export GIT_AUTHOR_NAME="Plup"
+#export GIT_AUTHOR_EMAIL="plup@plup.io"
 
 # function to detect git status
 git_info() {
@@ -81,16 +101,6 @@ if [ -f "$HOME/.config/todo.cfg" ]; then
     alias td="todo-txt -d $HOME/.config/todo.cfg"
 fi
 
-man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-        LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-        LESS_TERMCAP_me=$'\E[0m' \
-        LESS_TERMCAP_se=$'\E[0m' \
-        LESS_TERMCAP_so=$'\E[38;5;246m' \
-        LESS_TERMCAP_ue=$'\E[0m' \
-        LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-        man "$@"
-}
 # extra local commands (right place for local overrides)
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
