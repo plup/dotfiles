@@ -43,6 +43,8 @@ man() {
 # set name in commits (usefull on shared account)
 #export GIT_AUTHOR_NAME="Plup"
 #export GIT_AUTHOR_EMAIL="plup@plup.io"
+#export GIT_COMMITTER_NAME="Plup"
+#export GIT_COMMITTER_EMAIL="plup@plup.io"
 
 # function to detect git status
 git_info() {
