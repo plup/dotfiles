@@ -43,6 +43,8 @@ man() {
 # set name in commits (usefull on shared account)
 #export GIT_AUTHOR_NAME="Plup"
 #export GIT_AUTHOR_EMAIL="plup@plup.io"
+#export GIT_COMMITTER_NAME="Plup"
+#export GIT_COMMITTER_EMAIL="plup@plup.io"
 
 # function to detect git status
 git_info() {
@@ -94,7 +96,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # commands I need everywhere
-alias genpass="echo $(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12)"
+alias genpass="< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c20"
 alias vi="vim"
 
 if [ -f "$HOME/.config/todo.cfg" ]; then
