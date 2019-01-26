@@ -7,6 +7,9 @@ font pango:monospace, FontAwesome 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# lock screen
+bindsym $mod+L exec slock
+
 # start a terminal
 bindsym $mod+Return exec urxvt
 
