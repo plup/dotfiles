@@ -7,9 +7,6 @@ font pango:monospace, FontAwesome 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# lock screen
-bindsym $mod+L exec slock
-
 # start a terminal
 bindsym $mod+Return exec urxvt
 
@@ -122,8 +119,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Terminate X session ?' -b 'Yes, exit i3' 'i3-msg exit'"
 # shutdown the computer
 bindsym $mod+Shift+h exec "i3-nagbar -t warning -m 'Shutdown the machine ?' -b 'Poweroff' 'sudo /sbin/shutdown -h now'"
-# lockout session
-bindsym XF86ScreenSaver exec i3lock --color "$bg-color"
+# lock screen
+bindsym --release $mod+l exec slock
+#bindsym XF86ScreenSaver exec i3lock --color "$bg-color"
 
 ## Screen control ##
 
