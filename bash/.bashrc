@@ -46,6 +46,9 @@ man() {
 #export GIT_COMMITTER_NAME="Plup"
 #export GIT_COMMITTER_EMAIL="plup@plup.io"
 
+# git graph
+alias gg="git log --abbrev-commit --graph --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
 # function to detect git status
 git_info() {
     local branch_name
