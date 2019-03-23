@@ -4,29 +4,29 @@ theme = "solarized_dark"
     [[plup]]
         realname = Plup
         address = plup@plup.io
-        sent_box = maildir:///home/plup/.mail/Plup/Sent
-        draft_box = maildir:///home/plup/.mail/Plup/Drafts
+        sent_box = maildir:///home/plup/.maildb/Plup/Sent
+        draft_box = maildir:///home/plup/.maildb/Plup/Drafts
         sent_tags = sent,
         sendmail_command = msmtp -a plup -t
     [[happydev]]
         realname = Simon
         address = simon@happy-dev.fr
-        sent_box = maildir:///home/plup/.mail/Happydev/Sent
-        draft_box = maildir:///home/plup/.mail/Happydev/Drafts
+        sent_box = maildir:///home/plup/.maildb/Happydev/Sent
+        draft_box = maildir:///home/plup/.maildb/Happydev/Drafts
         sent_tags = sent,
         sendmail_command = msmtp -a happydev -t
     [[gmail]]
         realname = Simon
         address = rouault.simon@gmail.com
-        sent_box = maildir:///home/plup/.mail/Gmail/Sent
-        draft_box = maildir:///home/plup/.mail/Gmail/Drafts
+        sent_box = maildir:///home/plup/.maildb/Gmail/Sent
+        draft_box = maildir:///home/plup/.maildb/Gmail/Drafts
         sent_tags = sent,
         sendmail_command = msmtp -a gmail -t
     [[rouault]]
         realname = Simon
         address = simon@rouault.me
-        sent_box = maildir:///home/plup/.mail/Rouault/Sent
-        draft_box = maildir:///home/plup/.mail/Rouault/Drafts
+        sent_box = maildir:///home/plup/.maildb/Rouault/Sent
+        draft_box = maildir:///home/plup/.maildb/Rouault/Drafts
         sent_tags = sent,
         sendmail_command = msmtp -a rouault -t
 
