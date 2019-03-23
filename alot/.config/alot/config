@@ -32,7 +32,7 @@ theme = "solarized_dark"
 
 [bindings]
     [[thread]]
-        w = pipeto urlscan 2> /dev/null
+        w = call hooks.open_in_browser(ui)
 
 [tags]
     [[flagged]]
