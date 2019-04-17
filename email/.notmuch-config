@@ -1,0 +1,17 @@
+[database]
+path=/home/plup/.maildb
+
+[user]
+name=Plup
+primary_email=plup@plup.io
+other_email=simon@rouault.me;simon@happy-dev.fr;rouault.simon@gmail.com;
+
+[new]
+tags=inbox;unread;
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true
