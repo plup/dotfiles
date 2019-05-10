@@ -78,7 +78,7 @@ git_info() {
 export -f git_info
 
 # set the prompt
-export PS1="\[\033[38;5;247m\][\t] \u@\h:\[\033[01;34m\]\w \[\033[31m\]\$(git_info)\n\[\033[35m\]$\[\033[00m\] "
+export PS1="\[\033[38;5;247m\][\t] \u@\h:\[\033[01;34m\]\w \[\033[31m\]\$(git_info)"$'\n'"\[\033[35m\]$\[\033[00m\] "
 
 # python version for pipenv
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
