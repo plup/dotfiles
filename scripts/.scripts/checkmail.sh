@@ -4,7 +4,7 @@ set -e
 # check network connection
 wicd-cli -i | grep 'status: Connected' > /dev/null
 if [ $? -eq 0 ]; then
-    offlineimap
+    mbsync -a 2> /dev/null
     notmuch new
     exit 0
 fi
