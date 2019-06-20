@@ -6,45 +6,25 @@ esac
 
 ## Terminal style and behavior ##
 
-# don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# don't put duplicate lines or lines starting with space in the history
+HISTCONTROL=ignorespace:ignoredups:ignorespace
+# set ongoing history length
 HISTSIZE=1000
+# set stored history length (0 don't record history after logout)
 HISTFILESIZE=2000
+# change history location (usefull on shared account)
+# HISTFILE=/home/$USER/.plup_history
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# check the window size after each command and, if necessary,
+# check the window size after each command
 shopt -s checkwinsize
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias egrep='egrep --color=auto'
+# set bash completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
 fi
-
-# man colors
-man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-        LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-        LESS_TERMCAP_me=$'\E[0m' \
-        LESS_TERMCAP_se=$'\E[0m' \
-        LESS_TERMCAP_so=$'\E[38;5;246m' \
-        LESS_TERMCAP_ue=$'\E[0m' \
-        LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-        man "$@"
-}
-
-## GIT ##
-
-# set name in commits (usefull on shared account)
-#export GIT_AUTHOR_NAME="Plup"
-#export GIT_AUTHOR_EMAIL="plup@plup.io"
-#export GIT_COMMITTER_NAME="Plup"
-#export GIT_COMMITTER_EMAIL="plup@plup.io"
 
 # function to detect git status
 git_info() {
@@ -71,17 +51,9 @@ git_info() {
         fi
     fi
 }
-# export to sub-shells
-export -f git_info
 
 # set the prompt
-export PS1="\[\033[38;5;247m\][\t] \u@\h:\[\033[01;34m\]\w \[\033[31m\]\$(git_info)\n\[\033[35m\]$\[\033[00m\] "
-
-# python version for pipenv
-export PIPENV_DEFAULT_PYTHON_VERSION=3.6
-
-# add pip user installed binaries and local scripts to PATH
-export PATH="$HOME/.scripts:$HOME/.local/bin:$PATH"
+PS1="\[\033[38;5;247m\][\t] \u@\h:\[\033[01;34m\]\w \[\033[31m\]\$(git_info)"$'\n'"\[\033[35m\]$\[\033[00m\] "
 
 # use urxvt terminal if available
 if [ -f /usr/bin/urxvt ]; then
@@ -90,14 +62,46 @@ else
     export TERM=xterm-256color
 fi
 
-# set bash completion
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+# add pip user installed binaries and local scripts to PATH
+export PATH="$HOME/.scripts:$HOME/.local/bin:$PATH"
+
+## Default programs ##
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
+
+# man colors
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+        LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+        LESS_TERMCAP_me=$'\E[0m' \
+        LESS_TERMCAP_se=$'\E[0m' \
+        LESS_TERMCAP_so=$'\E[38;5;246m' \
+        LESS_TERMCAP_ue=$'\E[0m' \
+        LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+        man "$@"
+}
+
+## GIT ##
+
+# git graph
+alias gg="git log --abbrev-commit --graph --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
+# set name in commits (usefull on shared account)
+#export GIT_AUTHOR_NAME="Plup"
+#export GIT_AUTHOR_EMAIL="plup@plup.io"
+#export GIT_COMMITTER_NAME="Plup"
+#export GIT_COMMITTER_EMAIL="plup@plup.io"
+
+## Custom commands ##
 
 # commands I need everywhere
 alias genpass="< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c20"
-alias vi="vim"
 
 if [ -f "$HOME/.config/todo.cfg" ]; then
     alias td="todo-txt -d $HOME/.config/todo.cfg"
