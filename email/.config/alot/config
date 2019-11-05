@@ -2,14 +2,14 @@ theme = "solarized_dark"
 
 [accounts]
     [[plup]]
-        realname = Plup
+        realname = Simon (Plup)
         address = plup@plup.io
         sent_box = maildir:///home/plup/.maildb/plup/sent
         draft_box = maildir:///home/plup/.maildb/plup/drafts
         sent_tags = sent,
         sendmail_command = msmtp -a plup -t
     [[happydev]]
-        realname = Simon
+        realname = Simon (Plup)
         address = simon@paris.happy-dev.fr
         sent_box = maildir:///home/plup/.maildb/happydev/sent
         draft_box = maildir:///home/plup/.maildb/happydev/drafts
