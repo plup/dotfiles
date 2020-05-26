@@ -9,8 +9,8 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 ! See package fonts-inconsolata for debian
-URxvt.font: xft:Inconsolata-11
-URxvt.boldFont: xft:Inconsolata-11
+URxvt.font: xft:Inconsolata
+URxvt.boldFont: xft:Inconsolata
 URxvt.letterSpace: 0
 
 ! Hide scrollbar
