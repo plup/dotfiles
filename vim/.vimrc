@@ -26,6 +26,7 @@ set t_Co=16
 
 " Key bindings
 nnoremap <F2> :NERDTreeToggle<CR>
+set pastetoggle=<F3>
 
 " Disable tab expansion for Makefile
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
