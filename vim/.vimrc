@@ -6,7 +6,7 @@ set number
 set showcmd
 set incsearch
 set hlsearch
-set encoding=utf-8  	" The encoding displayed.
+set encoding=utf-8      " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 set fileformats=unix
 
@@ -30,3 +30,5 @@ set pastetoggle=<F3>
 
 " Disable tab expansion for Makefile
 autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+" Set indentation for YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
