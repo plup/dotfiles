@@ -2,7 +2,7 @@
 
 Installation:
 ```
-$ git clone https://github.com/plup/dotfiles.git ~/.dotfiles
+$ git clone https://github.com/plup/dotfiles.git ~/.plup
 $ cd !$ && stow bash
 ```
 

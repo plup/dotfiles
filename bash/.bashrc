@@ -92,12 +92,6 @@ man() {
 # git graph
 alias gg="git log --abbrev-commit --graph --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
-# set name in commits (usefull on shared account)
-#export GIT_AUTHOR_NAME="Plup"
-#export GIT_AUTHOR_EMAIL="plup@plup.io"
-#export GIT_COMMITTER_NAME="Plup"
-#export GIT_COMMITTER_EMAIL="plup@plup.io"
-
 ## Custom commands ##
 
 # commands I need everywhere
